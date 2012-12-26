@@ -1,1 +1,10 @@
-Flask webapp that controls my arduino
+Flask webapp to change RGB leds on an Arduino using the firmata framework.
+
+Requirements:
+1. Flask
+2. pyFirmata
+
+How to use:
+1. Set up your configurations for your arduino in arduino.py. Specifically set up ARDUINO_PORT to point to the port of your arduino, and the *_PIN variables to point to the appropriate pins for your RGB LED on your arduino board.
+2. Run "python flashing_lights.py".
+3. Go to http://127.0.0.1:5000/flashing_lights and control your lights! 
