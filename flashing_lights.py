@@ -14,8 +14,9 @@ def flashing_lights():
 @app.route('/flashing_lights/update_color/<hex_color>')
 def update_color(hex_color):
 	prepared_arduino_values = _get_prepared_rgb_tuple_for_arduino(hex_color)
-	print prepared_arduino_values
-	return str(prepared_arduino_values)
+	arduino = Arduino()
+	arduino.set_rgb_value(prepared_arduino_values)
+	return 'success'
 
 def _get_prepared_rgb_tuple_for_arduino(hex_color):
 	assert len(hex_color) == 6

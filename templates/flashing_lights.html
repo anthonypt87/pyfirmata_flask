@@ -1,26 +1,33 @@
 <!doctype html>
 <html>
 	<head>
-		<script src="{{url_for('static', filename='js/jquery-1.4.1.min.js')}}"></script>
-		<script src="{{url_for('static', filename='js/raphael-2.1.0-min.js')}}"></script>
-		<script src="{{url_for('static', filename='js/colorwheel.js')}}"></script>
+		<link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet" media="screen">
 		<title>Hello from Flask</title>
 	</head>
 	<body>
-		<h1>Flasing Lights!</h1>
-		<div id='colorwheel'></div>
-	<script>
-		$(document).ready(function(){
-			var cw = Raphael.colorwheel($('#colorwheel'), 150);
-			cw.color('#00F')
-			cw.onchange(function(color){
-				color = String(color).substring(1);
-				var url = 'flashing_lights/update_color/';
-				url = url.concat(color);
-				console.log(url);
-				$.get(url);
+		<div class='container'>
+			<div class='hero-unit'>
+				<h1>Flasing Lights!</h1>
+				<p>Control lights using the color wheel!</p>
+				<div id='colorwheel'></div>
+			</div>
+		</div>
+		<script src="{{url_for('static', filename='js/jquery-1.7.2.min.js')}}"></script>
+		<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+		<script src="{{url_for('static', filename='js/raphael-2.1.0-min.js')}}"></script>
+		<script src="{{url_for('static', filename='js/colorwheel.js')}}"></script>
+		<script>
+			$(document).ready(function(){
+				var cw = Raphael.colorwheel($('#colorwheel'), 150);
+				cw.color('#00F')
+				cw.onchange(function(color){
+					color = String(color).substring(1);
+					var url = 'flashing_lights/update_color/';
+					url = url.concat(color);
+					console.log(url);
+					$.get(url);
+				})
 			})
-		})
-	</script>
+		</script>
 	</body>
 </html>
