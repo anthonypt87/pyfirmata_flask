@@ -1,0 +1,10 @@
+Flask==0.9
+Jinja2==2.6
+Werkzeug==0.8.3
+mock==1.0.1
+nose==1.1.2
+pyFirmata==0.9.4
+pyserial==2.6
+spec==0.9.7
+wsgiref==0.1.2
+yolk==0.4.3
